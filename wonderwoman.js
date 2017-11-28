@@ -6,9 +6,9 @@ function Woman (canvas, sprite){
   this.speedY = 0;
   this.gravity = 0.15;
   this.gravitySpeed = 10;
-  this.x = 100;
-  this.y = 100;
-  this.scale = 0.1;
+  this.x = 80;
+  this.y = 60;
+  this.scale = 0.06;
 
   this.sprite = new Image ();
   this.sprite.src = sprite;
