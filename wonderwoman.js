@@ -1,6 +1,5 @@
-function Woman (canvas, sprite){
-  this.canvas = canvas;
-  this.ctx = this.canvas.getContext ("2d");
+function Woman (ctx, sprite){
+  this.ctx = ctx;
   this.vx = 0;
   this.vy = 0.5;
   this.pushs = 0;
@@ -19,16 +18,14 @@ function Woman (canvas, sprite){
 }
 
 Woman.prototype.drawWoman = function() {
-  if (this.isReady ()) {
-      this.ctx.save();
+  if (this.isReady()) {
       this.ctx.drawImage(
         this.sprite,
         this.x,
         this.y,
         this.width,
         this.height
-  );
-    this.ctx.restore();
+      );
   }
 };
 
@@ -39,19 +36,14 @@ Woman.prototype.push = function() {
 
 //update//
 Woman.prototype.update = function () {
-  this.ctx.clearRect(0,0,this.canvas.width, this.canvas.height);
-  this.drawWoman();
-};
-
-if (this.pushs < 0) {
+  if (this.pushs < 0) {
     this.pushs += 0.5;
     this.y -= 0.5;
   } else {
     this.y += 0.5;
   }
+};
 
 Woman.prototype.isReady = function() {
   return this.sprite.isReady;
 };
-
-// setInterval(this.woman.update().bind(this), 20);

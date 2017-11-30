@@ -1,55 +1,41 @@
-
 function Game(canvas) {
   this.canvas = document.getElementById("canvas");
   this.ctx = this.canvas.getContext('2d');
   this.xPos = 0;
-  this.woman = new Woman(this.canvas, "images/Wonder-Woman.png");
+  this.woman = new Woman(this.ctx, "images/Wonder-Woman.png");
   this.bg = new Image();
   this.bg.src = "images/bg.jpg";
   // this.bg.onload = function (){
   //   this.ctx.drawImage(this.bg,0,0);
   //
   // };
+  //
 }
 
 Game.prototype.drawBg = function() {
-  if (true) {
-    this.ctx.save();
-    this.ctx.drawImage(this.bg,this.xPos,0);
-    this.ctx.restore();
-  }
+  this.ctx.drawImage(this.bg,this.xPos,0);
 };
 
 Game.prototype.draw = function() {
-  if (true) {
-    //this.clear();
-    this.drawBg();
-    this.woman.drawWoman();
+  this.ctx.clearRect(0,0,this.canvas.width, this.canvas.height);
 
-  }
-  window.requestAnimationFrame(this.draw.bind(this));
+  this.drawBg();
+
+  this.woman.update();
+  this.woman.drawWoman();
 };
+
+// Start Game
 
 window.onload = function() {
   var game = new Game("canvas");
-  console.log(game);
-  game.draw();
 
+  setInterval(game.draw.bind(game), 20);
 
-//function startGame//
-  document.getElementById("start-button").onclick = function() {
-    startGame();
-  };
-
-//adding listener for spacebar//
-document.addEventListener("keypress", function(event) {
-  if(event.keyCode == 32) {
-    this.woman.push();
-  }
-});
-
-  function startGame() {
-
-  }
-
+  //adding listener for spacebar//
+  document.addEventListener("keypress", function(event) {
+    if(event.keyCode == 32) {
+      this.woman.push();
+    }
+  }.bind(game));
 };
