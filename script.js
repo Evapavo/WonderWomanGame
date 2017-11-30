@@ -41,6 +41,13 @@ window.onload = function() {
     startGame();
   };
 
+//adding listener for spacebar//
+document.addEventListener("keypress", function(event) {
+  if(event.keyCode == 32) {
+    this.woman.push();
+  }
+});
+
   function startGame() {
 
   }
