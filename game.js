@@ -4,6 +4,7 @@ function Game(canvas) {
   this.xPos = 0;
   this.bg = new Bg(this.ctx, 'images/planets.png');
   this.woman = new Woman(this.ctx, "images/Wonder-Woman.png");
+  this.quiz = new Quiz();
   // this.bg = new Image();
   // this.bg.src = "images/planets.png";
 }
@@ -23,7 +24,8 @@ Game.prototype.draw = function() {
 
 window.onload = function() {
   var game = new Game("canvas");
-
+  game.quiz.showQuestions(0);
+  game.quiz.start(0);
   setInterval(game.draw.bind(game), 20);
 
   //adding listener for spacebar//
