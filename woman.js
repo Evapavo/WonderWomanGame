@@ -3,7 +3,7 @@ function Woman (ctx, sprite){
   this.vx = 0;
   this.vy = 0.5;
   this.pushs = 0;
-  this.x = 80;
+  this.x = 170;
   this.y = 60;
   this.scale = 0.06;
 

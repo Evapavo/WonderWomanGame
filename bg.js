@@ -32,4 +32,4 @@ Bg.prototype.drawBg = function() {
  this.ctx.drawImage(this.sprite, this.x, this.y, this.width, this.height);
 
   this.x -= 0.5;
-}
+};
