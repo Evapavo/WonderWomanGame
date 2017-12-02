@@ -7,7 +7,7 @@ $(".answer").on("click", function(event) {
     answerCheck(userAnswer);
 
     setTimeout(function() {
-                $(".answer").removeClass("correctStyle incorrectStyle");
+                $(".answer").removeClass("correct incorrect");
                  start(questionNumber);
              }, 1500);
 
@@ -16,13 +16,13 @@ $(".answer").on("click", function(event) {
 
 });
 
-var questionNumber = 0,
-    totalCorrect = 0,
-    optionFinal = 0;
+var questionNumber = 0;
+    totalCorrect = 0;
+
 
 var allQuestions = [
      {  question: 'What is the first name of Wonder Woman?',
-        choices: ["Rachel", "Jane", "Diana"],
+        choices: ["Rachel", "Diana", "Jane"],
         answer: 1},
 
     {  question: "What tribe does she belong to?",
@@ -47,15 +47,6 @@ var allQuestions = [
 
   ];
 
-var result = [
-    { image: "images/skeptical.png",
-      comment: " You didn't know that? Really?"},
-
-    { image: "images/kiss.png",
-      comment:  " The perfect end."},
-    ];
-
-
 // continue with next question or end
 var start = function(questionNumber) {
       $('h2').hide().fadeIn(400);
@@ -77,31 +68,20 @@ function question(questionNum) {
       });
 }
 
+//show final text, image and try again
 function end() {
-  finalImage();
   $("ul").hide();
-  $("h2").text("You scored " + totalCorrect + " out of " + allQuestions.length + ". " + result[optionFinal]);
-  $("#image").html('<img src=' + result[optionFinal].image + ' alt="">').fadeIn(1000);
+  $("h2").text("Well done, babe!");
+  $("#correctImage").show();
   $("#try-again-container").show();
   restart();
 }
 
-// result image accourding to correct answers
-function finalImage() {
-  if(totalCorrect < allQuestions.length && totalCorrect >= (allQuestions.length)){
-          optionFinal = 1;
-    }else if(totalCorrect <= (allQuestions.length) && totalCorrect >= (allQuestions.length)){
-          optionFinal = 2;
-    }else if(totalCorrect !== allQuestions.length){
-          optionFinal = 3;
-    }
-}
 
 function restart(){
   $("#try-again").click(function(){
     questionNumber = 0;
     totalCorrect = 0;
-    optionFinal = 0;
 
     start(questionNumber);
     $("#image").hide();
@@ -111,12 +91,23 @@ function restart(){
 }
 
 function answerCheck(userAnswer) {
-     var correctAnswer = allQuestions[questionNumber].answer;
+    var correctAnswer = allQuestions[questionNumber].answer;
 
      if (userAnswer === correctAnswer) {
-         $("#" + userAnswer).addClass("correctStyle");
+         $("#" + userAnswer).addClass("correct");
          totalCorrect++;
-     }else{
-        $("#" + userAnswer).addClass("incorrectStyle");
+     }
+     else {
+        $("#" + userAnswer).addClass("incorrect");
      }
 }
+
+
+
+
+
+
+//div y show
+//ocultar preguntas
+//totalcorrect ++
+//totalcorrrect =allquestions.length -1
