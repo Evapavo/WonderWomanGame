@@ -7,6 +7,18 @@ function Game(canvas) {
   this.quiz = new Quiz();
   // this.bg = new Image();
   // this.bg.src = "images/planets.png";
+
+
+  $(".answer").on("click", (function(event) {
+    var userAnswer = parseInt(event.target.id);
+    if (this.quiz.answerCheck(userAnswer)) {
+      this.woman.push();
+    }
+  }).bind(this));
+
+  $("#try-again").click(function() {
+    this.quiz.restart();
+  }.bind(this));
 }
 
 // Game.prototype.drawBg = function() {
@@ -21,11 +33,10 @@ Game.prototype.draw = function() {
 };
 
 // Start Game
-
+var game;
 window.onload = function() {
-  var game = new Game("canvas");
-  game.quiz.showQuestions(0);
-  game.quiz.start(0);
+  game = new Game("canvas");
+  game.quiz.start(game.quiz.questionNumber);
   setInterval(game.draw.bind(game), 20);
 
   //adding listener for spacebar//
