@@ -23,8 +23,8 @@ body h1 {
 
 #quiz {
   width: 600px;
-  height:300px;
-  margin-top: 30px;
+  height:400px;
+  margin-top: 15px;
   float: left;
 }
 
@@ -68,11 +68,15 @@ button:active {
 }
 
 #incorrectImage {
-  width: 100px;
-  heigth: 200px;
+  width: 200px;
+  heigth: 400px;
 }
 
 #correctImage {
   width: 128px;
   heigth: 177px;
+}
+
+#try-again {
+  margin: 0 auto;
 }

@@ -87,7 +87,7 @@ function restart(){
 
     start(questionNumber);
     $("#incorrectImage").hide();
-    $("correctImage").hide();
+    $("#correctImage").hide();
     $("#try-again-container").hide();
     $("ul").fadeIn(400);
   });
