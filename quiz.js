@@ -51,10 +51,11 @@ var allQuestions = [
 var start = function(questionNumber) {
       $('h2').hide().fadeIn(400);
 
-      if(questionNumber !== allQuestions.length){
+      if(questionNumber !== allQuestions.length - 1){
           question(questionNumber);
-      }else{
-          end();
+      }
+      else{
+          end("Well done, babe", "#correctImage");
       }
 };
 
@@ -69,11 +70,12 @@ function question(questionNum) {
 }
 
 //show final text, image and try again
-function end() {
+function end(text, image) {
   $("ul").hide();
-  $("h2").text("Well done, babe!");
-  $("#correctImage").show();
+  $("h2").text(text);
+  $(image).show();
   $("#try-again-container").show();
+
   restart();
 }
 
@@ -84,7 +86,8 @@ function restart(){
     totalCorrect = 0;
 
     start(questionNumber);
-    $("#image").hide();
+    $("#incorrectImage").hide();
+    $("correctImage").hide();
     $("#try-again-container").hide();
     $("ul").fadeIn(400);
   });
@@ -98,7 +101,8 @@ function answerCheck(userAnswer) {
          totalCorrect++;
      }
      else {
-        $("#" + userAnswer).addClass("incorrect");
+       end("You didn't know that? Really?", "#incorrectImage");
+        // $("#" + userAnswer).addClass("incorrect");
      }
 }
 

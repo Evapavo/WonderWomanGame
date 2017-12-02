@@ -66,3 +66,13 @@ button:active {
 .incorrect {
       background-color: black;
 }
+
+#incorrectImage {
+  width: 100px;
+  heigth: 200px;
+}
+
+#correctImage {
+  width: 128px;
+  heigth: 177px;
+}
