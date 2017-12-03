@@ -1,11 +1,13 @@
 function Woman (ctx, sprite){
   this.ctx = ctx;
-  this.vx = 0;
-  this.vy = 0.5;
+  this.vx = 1;
+  this.vy = 2;
   this.pushs = 0;
-  this.x = 170;
+  this.x = 200;
   this.y = 60;
   this.scale = 0.06;
+
+
 
   this.sprite = new Image ();
   this.sprite.src = sprite;
@@ -15,6 +17,7 @@ function Woman (ctx, sprite){
     this.height = this.sprite.height * this.scale;
     this.sprite.src = sprite;
   }).bind(this);
+
 }
 
 Woman.prototype.drawWoman = function() {
@@ -46,4 +49,14 @@ Woman.prototype.update = function () {
 
 Woman.prototype.isReady = function() {
   return this.sprite.isReady;
+};
+
+Woman.prototype.collision = function () {
+  if ((this.y + this.sprite.height) > canvas.height || (this.y - this.sprite.height) < 0) {
+    this.vy *= -1;
+  }
+ else {
+    this.vy = 1;
+  }
+
 };
