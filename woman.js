@@ -1,13 +1,13 @@
 function Woman (ctx, sprite){
   this.ctx = ctx;
   this.vx = 1;
-  this.vy = 2;
+  this.vy = 5;
   this.pushs = 0;
   this.x = 200;
   this.y = 60;
   this.scale = 0.06;
-
-
+  this.width = 0;
+  this.heigth = 0;
 
   this.sprite = new Image ();
   this.sprite.src = sprite;
@@ -34,7 +34,7 @@ Woman.prototype.drawWoman = function() {
 
 //applying negative gravity//
 Woman.prototype.push = function() {
-  this.pushs -= 200;
+  this.pushs -= 50;
 };
 
 //update//
@@ -45,6 +45,7 @@ Woman.prototype.update = function () {
   } else {
     this.y += 0.5;
   }
+  this.drawWoman();
 };
 
 Woman.prototype.isReady = function() {
@@ -52,11 +53,8 @@ Woman.prototype.isReady = function() {
 };
 
 Woman.prototype.collision = function () {
-  if ((this.y + this.sprite.height) > canvas.height || (this.y - this.sprite.height) < 0) {
+  if ((this.y <0)|| (this.y + this.sprite.height) > canvas.height) {
     this.vy *= -1;
-  }
- else {
-    this.vy = 1;
   }
 
 };

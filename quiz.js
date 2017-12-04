@@ -50,7 +50,6 @@ Quiz.prototype.answerCheck = function(userAnswer) {
     return true;
   } else {
     $("#" + userAnswer).addClass("incorrect");
-    console.log($("#" + userAnswer));
     setTimeout((function(){
       this.end("You didn't know that? Really?", "#incorrectImage");
     }).bind(this), 200);
@@ -60,19 +59,11 @@ Quiz.prototype.answerCheck = function(userAnswer) {
 
 Quiz.prototype.start = function() {
     this.showQuestions(this.questionNumber);
-    // this.userAnswer = parseInt($(this).attr("id"));
-    // this.answerCheck(this.userAnswer);
-  // setTimeout () {
-  //   $(".answer").removeClass("correct incorrect");
-  //   start(this.questionNumber);
-  //   }, 1500);
-
-  // this.questionNumber++;
 };
 
 Quiz.prototype.clearAnswers = function(){
   $(".answer").removeClass("correct incorrect");
-}
+};
 
 Quiz.prototype.rotation = function(userAnswer) {
   this.clearAnswers();

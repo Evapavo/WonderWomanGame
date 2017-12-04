@@ -26,6 +26,7 @@ body h1 {
   height:400px;
   margin-top: 15px;
   float: left;
+
 }
 
 h2  {
@@ -67,14 +68,14 @@ button:active {
       background-color: black;
 }
 
-#incorrectImage {
-  width: 200px;
-  heigth: 400px;
+#gameoverImage {
+  width: 250px;
+  heigth: 500px;
 }
 
 #correctImage {
-  width: 128px;
-  heigth: 177px;
+  width: 180px;
+  heigth: 250px;
 }
 
 #try-again {
