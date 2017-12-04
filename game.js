@@ -22,7 +22,7 @@ Game.prototype.draw = function() {
   this.ctx.clearRect(0,0,this.canvas.width, this.canvas.height);
   this.bg.drawBg();
   if(this.woman.y >= this.canvas.height) {
-    alert('gameover');
+    this.quiz.end ("gameover", "#gameoverImage");
 
     clearInterval(this.interval);
   }

@@ -50,8 +50,9 @@ Quiz.prototype.answerCheck = function(userAnswer) {
     return true;
   } else {
     $("#" + userAnswer).addClass("incorrect");
+    this.questionNumber++;
     setTimeout((function(){
-      this.end("You didn't know that? Really?", "#incorrectImage");
+      this.rotation();
     }).bind(this), 200);
     return false;
   }
@@ -97,7 +98,7 @@ Quiz.prototype.restart = function() {
   this.totalCorrect = 0;
 
   this.start(this.questionNumber);
-  $("#incorrectImage").hide();
+  $("#gameoverImage").hide();
   $("#correctImage").hide();
   $("#try-again-container").hide();
   $("ul").fadeIn(400);
