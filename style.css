@@ -20,17 +20,17 @@ body h1 {
   margin-left: 30px
 }
 
-
 #quiz {
   width: 600px;
   height:400px;
   margin-top: 15px;
   float: left;
-
+  margin-bottom: 500px,
 }
 
 h2  {
   color: navy;
+  font-family: sans-serif;
 }
 
 ul {
@@ -45,7 +45,7 @@ li {
 }
 
 button {
-      width: 220px;
+      width: 250px;
       font-size: 20px;
       margin:12px 0;
       padding: 10px 0;
@@ -69,8 +69,9 @@ button:active {
 }
 
 #gameoverImage {
-  width: 250px;
-  heigth: 500px;
+  width: 350px;
+  heigth: 700px;
+
 }
 
 #correctImage {

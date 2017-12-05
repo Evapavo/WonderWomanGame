@@ -71,7 +71,6 @@ Quiz.prototype.rotation = function(userAnswer) {
   $('h2').hide().fadeIn(400);
   if(this.questionNumber !== this.allQuestions.length - 1){
     this.showQuestions(this.questionNumber);
-    // question(questionNumber);
   } else {
     this.end("Well done, babe", "#correctImage");
   }
@@ -97,7 +96,7 @@ Quiz.prototype.restart = function() {
   this.questionNumber = 0;
   this.totalCorrect = 0;
 
-  this.start(this.questionNumber);
+  this.start();
   $("#gameoverImage").hide();
   $("#correctImage").hide();
   $("#try-again-container").hide();

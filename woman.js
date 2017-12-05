@@ -20,6 +20,10 @@ function Woman (ctx, sprite){
 
 }
 
+Woman.prototype.restart = function() {
+  this.y = 60;
+}
+
 Woman.prototype.drawWoman = function() {
   if (this.isReady()) {
       this.ctx.drawImage(

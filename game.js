@@ -15,6 +15,8 @@ function Game(canvas) {
 
   $("#try-again").click(function() {
     this.quiz.restart();
+    this.woman.restart();
+    this.interval = setInterval(game.draw.bind(game), 30);
   }.bind(this));
 }
 
@@ -22,7 +24,7 @@ Game.prototype.draw = function() {
   this.ctx.clearRect(0,0,this.canvas.width, this.canvas.height);
   this.bg.drawBg();
   if(this.woman.y >= this.canvas.height) {
-    this.quiz.end ("gameover", "#gameoverImage");
+    this.quiz.end ("GAME OVER", "#gameoverImage");
 
     clearInterval(this.interval);
   }
